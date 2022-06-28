@@ -106,7 +106,7 @@ section.shop {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .shop .products .product-card {
@@ -115,7 +115,7 @@ section.shop {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.096);
 }
@@ -141,10 +141,12 @@ section.shop {
 
 .shop .products .product-card .product-name {
   padding: 5px 0;
+  letter-spacing: 1px;
 }
 
 .shop .products .product-card .product-price {
-  padding: 5px 0;
+  padding: 10px 0;
+  font-size: 15px;
 }
 
 .shop .products .product-card .product-add {
