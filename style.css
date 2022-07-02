@@ -69,13 +69,13 @@ header nav ul li a {
   letter-spacing: 1px;
   font-weight: 600;
   border-radius: 5px;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.712);
+  box-shadow: 0 0 3px rgb(0, 0, 0);
   transform: scale(1);
   transition: 0.2s;
 }
 
 header nav ul li a:hover {
-  box-shadow: none;
+  background-color: #ca9e0d;
   transform: scale(0.99);
   color: #000000;
 }
