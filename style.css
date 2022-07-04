@@ -148,8 +148,8 @@ section.shop {
 
 .shop .products .product-card img {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 200px;
   object-fit:contain;
   transform: scale(1);
   transition: 0.7s;
@@ -169,8 +169,8 @@ section.shop {
   font-size: 15px;
 }
 
-.product__price:after {
-  content: 'zl';
+.shop .products .product-card .product-price::after {
+  content: ' PLN';
 }
 
 .shop .products .product-card .product-add {
@@ -225,10 +225,11 @@ section.shop {
   margin-bottom: 10px;
   border: 1px dotted #666;
   color: #c5c3c2;
+  overflow: hidden;
 }
 
 
-.cart__item__image {
+.cart-item-image {
   max-width: 68px;
 }
 
@@ -260,10 +261,13 @@ section.shop {
   background: #333;
 }
 
-.btn-main:hover:not(:disabled),
+.btn-main:hover:not(:disabled) {
+  outline: none;
+  border-color: #fff;
+}
+
 .btn-main:focus {
   outline: none;
-  box-shadow: 0 0 0 5px var(--color-primary-light);
 }
 
 .btn-danger {
@@ -271,10 +275,10 @@ section.shop {
   background: #db0909;
 }
 
-.btn--danger:hover:not(:disabled),
-.btn--danger:focus {
+.btn-danger:hover:not(:disabled),
+.btn-danger:focus {
   outline: none;
-  box-shadow: 0 0 0 5px #fa5252;
+  border-color: #fff;
 }
 
 .btn-small {
@@ -284,6 +288,16 @@ section.shop {
 :disabled {
   opacity: .5;
   cursor: not-allowed;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .7);
+  cursor: wait;
 }
 
 /* ---------------------- ABOUT ----------------------- */

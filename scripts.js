@@ -45,11 +45,11 @@ addToCartButtonsDOM.forEach(addToCartButtonDOM => {
 function insertItemToDOM(product) {
   cartDOM.insertAdjacentHTML('beforeend', `
     <div class="cart-item">
-      <img class="cart__item__image" src="${product.image}" alt="${product.name}">
-      <h3 class="cart__item__name">${product.name}</h3>
-      <h3 class="cart__item__price">${product.price}</h3>
-      <button class="btn btn-main btn-small${(product.quantity === 1 ? ' btn-danger' : '')}" data-action="DECREASE_ITEM">&minus;</button>
-      <h3 class="cart__item__quantity">${product.quantity}</h3>
+      <img class="cart-item-image" src="${product.image}" alt="${product.name}">
+      <h3 class="cart-item-name">${product.name}</h3>
+      <h3 class="cart-item-price">${product.price}</h3>
+      <button class="btn btn-main btn-small${(product.quantity === 1 ? ' btn-main' : '')}" data-action="DECREASE_ITEM">&minus;</button>
+      <h3 class="cart-item-quantity">${product.quantity}</h3>
       <button class="btn btn-main btn-small" data-action="INCREASE_ITEM">&plus;</button>
       <button class="btn btn-danger btn-small" data-action="REMOVE_ITEM">&times;</button>
     </div>
@@ -61,10 +61,11 @@ function insertItemToDOM(product) {
 function handleActionButtons(addToCartButtonDOM, product) {
   addToCartButtonDOM.innerText = 'In Cart';
   addToCartButtonDOM.disabled = true;
+  addToCartButtonDOM.style.cursor = "not-allowed";
 
   const cartItemsDOM = cartDOM.querySelectorAll('.cart-item');
   cartItemsDOM.forEach(cartItemDOM => {
-    if (cartItemDOM.querySelector('.cart__item__name').innerText === product.name) {
+    if (cartItemDOM.querySelector('.cart-item-name').innerText === product.name) {
       cartItemDOM.querySelector('[data-action="INCREASE_ITEM"]').addEventListener('click', () => increaseItem(product, cartItemDOM));
       cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').addEventListener('click', () => decreaseItem(product, cartItemDOM, addToCartButtonDOM));
       cartItemDOM.querySelector('[data-action="REMOVE_ITEM"]').addEventListener('click', () => removeItem(product, cartItemDOM, addToCartButtonDOM));
@@ -75,7 +76,7 @@ function handleActionButtons(addToCartButtonDOM, product) {
 function increaseItem(product, cartItemDOM) {
   cart.forEach(cartItem => {
     if (cartItem.name === product.name) {
-      cartItemDOM.querySelector('.cart__item__quantity').innerText = ++cartItem.quantity;
+      cartItemDOM.querySelector('.cart-item-quantity').innerText = ++cartItem.quantity;
       cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.remove('btn-danger');
       saveCart();
     }
@@ -86,15 +87,15 @@ function decreaseItem(product, cartItemDOM, addToCartButtonDOM) {
   cart.forEach(cartItem => {
     if (cartItem.name === product.name) {
       if (cartItem.quantity > 1) {
-        cartItemDOM.querySelector('.cart__item__quantity').innerText = --cartItem.quantity;
+        cartItemDOM.querySelector('.cart-item-quantity').innerText = --cartItem.quantity;
         saveCart();
       } else {
         removeItem(product, cartItemDOM, addToCartButtonDOM);
       }
 
-      if (cartItem.quantity === 1) {
-        cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.add('btn-danger');
-      }
+      // if (cartItem.quantity === 1) {
+      //   cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.add('btn-danger');
+      // }
     }
   });
 }
@@ -104,9 +105,10 @@ function removeItem(product, cartItemDOM, addToCartButtonDOM) {
   setTimeout(() => cartItemDOM.remove(), 250);
   cart = cart.filter(cartItem => cartItem.name !== product.name);
   saveCart();
+  addToCartButtonDOM.style.cursor = "pointer";
   addToCartButtonDOM.innerText = 'Add To Cart';
   addToCartButtonDOM.disabled = false;
-
+  
   if (cart.length < 1) {
     document.querySelector('.cart-footer').remove();
   }
@@ -137,6 +139,7 @@ function clearCart() {
   document.querySelector('.cart-footer').remove();
 
   addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+    addToCartButtonDOM.style.cursor = "pointer";
     addToCartButtonDOM.innerText = 'Add To Cart';
     addToCartButtonDOM.disabled = false;
   });
@@ -171,11 +174,12 @@ function checkout() {
 
 function countCartTotal() {
   let cartTotal = 0;
-  cart.forEach(cartItem => cartTotal += cartItem.quantity * cartItem.price);
-  document.querySelector('[data-action="CHECKOUT"]').innerText = `Pay ${cartTotal} zł`;
+  cart.forEach(cartItem => (cartTotal += cartItem.quantity * cartItem.price));
+  document.querySelector('[data-action="CHECKOUT"]').innerText = 'Pay ' + (cartTotal).toFixed(2) + ' PLN';
 }
 
 function saveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
   countCartTotal();
 }
+
