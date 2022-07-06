@@ -3,6 +3,7 @@
 let cart = (JSON.parse(localStorage.getItem('cart')) || []);
 const cartDOM = document.querySelector('.cart');
 const addToCartButtonsDOM = document.querySelectorAll('[data-action="ADD_TO_CART"]');
+var dot = document.querySelector('.dot');
 
 if (cart.length > 0) {
   cart.forEach(cartItem => {
@@ -92,10 +93,6 @@ function decreaseItem(product, cartItemDOM, addToCartButtonDOM) {
       } else {
         removeItem(product, cartItemDOM, addToCartButtonDOM);
       }
-
-      // if (cartItem.quantity === 1) {
-      //   cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.add('btn-danger');
-      // }
     }
   });
 }
@@ -112,6 +109,7 @@ function removeItem(product, cartItemDOM, addToCartButtonDOM) {
   if (cart.length < 1) {
     document.querySelector('.cart-footer').remove();
   }
+
 }
 
 function addCartFooter() {
@@ -143,6 +141,8 @@ function clearCart() {
     addToCartButtonDOM.innerText = 'Add To Cart';
     addToCartButtonDOM.disabled = false;
   });
+
+  dot.style.display = 'none';
 }
 
 function checkout() {
@@ -176,10 +176,17 @@ function countCartTotal() {
   let cartTotal = 0;
   cart.forEach(cartItem => (cartTotal += cartItem.quantity * cartItem.price));
   document.querySelector('[data-action="CHECKOUT"]').innerText = 'Pay ' + (cartTotal).toFixed(2) + ' PLN';
+  // if (cartTotal > 0) {
+  //   dot.style.display = 'block';
+  // } else {
+  //   dot.style.display = 'none';
+  // }
+  cartTotal > 0 ? dot.style.display = 'block' : dot.style.display = 'none';
 }
 
 function saveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
   countCartTotal();
 }
+
 
