@@ -123,7 +123,7 @@ section {
 
 section#shop {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -154,8 +154,8 @@ h2 {
 }
 
 #shop .products .product-card .product-image-wrapper {
-  width: 250px;
-  height: 200px;
+  width: 320px;
+  height: 250px;
   overflow: hidden;
 }
 
@@ -612,6 +612,32 @@ section#service .service-wrapper .circle {
 section#service .service-wrapper p {
   text-align: justify;
   line-height: 2;
+}
+
+section#service .service-wrapper hr {
+  margin: 20px 0 0;
+  padding-top: 10px;
+}
+
+section#service .service-grid {
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section#service .service-grid .service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section#service .service-grid .service-card i {
+  font-size: 3em;
+  padding-bottom: 0.5em;
 }
 
 /* ---------------------- FOOTER ----------------------- */
