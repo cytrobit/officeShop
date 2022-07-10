@@ -583,6 +583,39 @@ section.about .slider:hover li {
   }
 }
 
+/* ---------------------- SERVICE ----------------------- */
+
+section#service {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d8d8d8;
+}
+
+section#service .service-wrapper {
+  max-width: 800px;
+}
+
+section#service .service-wrapper .circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: url('https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-position: center;
+  float: left;
+  shape-outside: circle();
+  margin: 30px 30px 30px 0;
+}
+
+section#service .service-wrapper p {
+  text-align: justify;
+  line-height: 2;
+}
+
+/* ---------------------- FOOTER ----------------------- */
+
 footer {
   background-color: #000000;
   color: #c5c3c2;
