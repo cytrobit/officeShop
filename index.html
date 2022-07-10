@@ -9,18 +9,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header id="header">
     <nav>
       <a href="#" class="logo">
         <img src="https://img.icons8.com/bubbles/452/office.png" class="icon_office" alt="Logo image">
       </a>
       
       <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="#header">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
       <li><a href="#">Service</a></li>
-      <li><a href="#">Shop</a></li>
-      <li><a href="#">About us</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#footer">Contact</a></li>
     </ul>
       <a href="#basket" class="shop-cart">
         <img src="https://img.icons8.com/external-icongeek26-outline-icongeek26/344/external-cart-ecommerce-icongeek26-outline-icongeek26.png" class="icon_cart" alt="Shopping cart"><span class="dot"></span>
@@ -28,7 +28,7 @@
     </nav>
   </header>
   <main class="wrapper">
-    <section class="shop">
+    <section id="shop">
       <h2>Our Products</h2>
       <div class="products">
         <div class="product-card">
@@ -109,8 +109,9 @@
       <h2 class="text-center">Cart</h2>
       <div class="cart"></div>
     </div>
-    <section class="about">
+    <section class="about" id="about">
       <h2>They wrote about us...</h2>
+      <img id="heart" src="https://www.freeiconspng.com/uploads/heart-png-26.png" alt="heart logo">
       <div class="content-slider">
         <div class="slider">
           <div class="mask">
@@ -141,7 +142,7 @@
       </div>
     </section>
   </main>
-  <footer>
+  <footer id="footer">
     <div class="column">
       <h3>Shortly about Us...</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, non sapiente at quas enim aliquid, architecto aperiam, dicta est nisi cum sed alias incidunt illum sequi praesentium. Totam, praesentium at?</p>
@@ -153,15 +154,16 @@
         <li>ul. Highstreet 666</li>
         <li>62-200 Gniezno</li>
         <li>Poland</li>
+        <li>tel.: 666 666 666</li>
       </ul>
     </div>
     <div class="column">
       <h3>Social media</h3>
       <ul>
-        <li><a href=""><i class="fa-brands fa-facebook-square"></i>Facebbok</a></li>
-        <li><a href=""><i class="fa-brands fa-instagram-square"></i>Instagram</a></li>
-        <li><a href=""><i class="fa-brands fa-twitter-square"></i>Twitter</a></li>
-        <li><a href=""><i class="fa-brands fa-youtube-square"></i>YouTube</a></li>
+        <li><a href="#"><i class="fa-brands fa-facebook-square"></i>Facebbok</a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram-square"></i>Instagram</a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter-square"></i>Twitter</a></li>
+        <li><a href="#"><i class="fa-brands fa-youtube-square"></i>YouTube</a></li>
       </ul>
     </div>
     <div class="column">
@@ -170,8 +172,8 @@
       <input type="email" placeholder="Type your email address here" />
       <button>Subscribe</button>
     </div>
-    <p>Coded with <i class="fa-solid fa-heart"></i> by <a href="">Cytrobit</a></p>
   </footer>
+  <p class="bottomfooter">Coded with <i class="fa-solid fa-heart"></i> by <a href="https://www.cytrobit.com" target="_blank">www.cytrobit.com</a></p>
   <script src="scripts.js"></script>
 </body>
 </html>
