@@ -5,6 +5,22 @@ const cartDOM = document.querySelector('.cart');
 const addToCartButtonsDOM = document.querySelectorAll('[data-action="ADD_TO_CART"]');
 var dot = document.querySelector('.dot');
 
+const span1 = document.querySelector(".spn1");
+const span2 = document.querySelector(".spn2");
+const span3 = document.querySelector(".spn3");
+const burger = document.querySelector(".burger");
+const mobile = document.querySelector(".mobileMenu");
+
+function transmutation() {
+  span1.classList.toggle("spn1-trnsfrm");
+  span2.classList.toggle("spn2-trnsfrm");
+  span3.classList.toggle("spn3-trnsfrm");
+  burger.classList.toggle('burger-transform');
+  mobile.classList.toggle('pokaz');
+}
+
+burger.addEventListener("click", transmutation);
+
 if (cart.length > 0) {
   cart.forEach(cartItem => {
     const product = cartItem;
