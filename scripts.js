@@ -193,11 +193,6 @@ function countCartTotal() {
   let cartTotal = 0;
   cart.forEach(cartItem => (cartTotal += cartItem.quantity * cartItem.price));
   document.querySelector('[data-action="CHECKOUT"]').innerText = 'Pay ' + (cartTotal).toFixed(2) + ' PLN';
-  // if (cartTotal > 0) {
-  //   dot.style.display = 'block';
-  // } else {
-  //   dot.style.display = 'none';
-  // }
   cartTotal > 0 ? dot.style.display = 'block' : dot.style.display = 'none';
 }
 
