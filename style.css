@@ -171,7 +171,8 @@ h2 {
 }
 
 #shop .products .product-card .product-image-wrapper {
-  max-width: 320px;
+  width: 320px;
+  max-width: 100%;
   height: 250px;
   overflow: hidden;
 }
